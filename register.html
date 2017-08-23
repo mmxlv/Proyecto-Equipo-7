@@ -12,27 +12,34 @@
     <div class="container">
       <header class="main-head">
         <a href="index.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
-        <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-            <a href="index.html">Home</a>
-            <a href="questions.html">FAQs</a>
-            <a href="#">Prouctos</a>
-            <a href="#">Registrarse</a>
-            <a href="login.html">Iniciar Sesion</a>
-          </div>
-        </div>
+        <ul class="nav-bar">
+          <li class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+              <a href="index.html">Home</a>
+              <a href="questions.html">FAQs</a>
+              <a href="#">Prouctos</a>
+              <a href="#">Registrarse</a>
+              <a href="login.html">Iniciar Sesion</a>
+            </div>
+          </li>
+          <li class="searchbar">
+            <input class="searchinput" type="text" name="search" placeholder="Search..">
+          </li>
+        </ul>
       </header>
       <div class="main-registro">
-        <form class="registro" action="" method="post">
-          Nombre<br>
-          <input type="text" name="nombre" value="nombre"><br>
-          Email<br>
-          <input type="email" name="email" value="email"><br>
-          Contraseña<br>
-          <input type="password" name="password" value="password"><br><br>
-          <input type="submit" name="btnsubmit" value="submit">
-        </form>
+        <div class="form-bg">
+          <form class="registro" action="" method="post">
+            Nombre<br>
+            <input required type="text" name="nombre" placeholder="Nombre"><br>
+            Email<br>
+            <input required type="email" name="email" placeholder="ejemplo@ejemplo.com"><br>
+            Contraseña<br>
+            <input required type="password" name="password" placeholder="Contraseña"><br><br>
+            <input type="submit" name="btnsubmit" value="submit">
+          </form>
+        </div>
       </div>
       <footer>
         <div class="links">

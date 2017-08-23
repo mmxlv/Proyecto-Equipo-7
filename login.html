@@ -12,28 +12,35 @@
     <div class="container">
       <header class="main-head">
         <a href="index.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
-        <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-            <a href="index.html">Home</a>
-            <a href="questions.html">FAQs</a>
-            <a href="#">Prouctos</a>
-            <a href="register.html">Registrarse</a>
-            <a href="#">Iniciar Sesion</a>
-          </div>
-        </div>
+        <ul class="nav-bar">
+          <li class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+              <a href="index.html">Home</a>
+              <a href="questions.html">FAQs</a>
+              <a href="#">Prouctos</a>
+              <a href="register.html">Registrarse</a>
+              <a href="#">Iniciar Sesion</a>
+            </div>
+          </li>
+          <li class="searchbar">
+            <input class="searchinput" type="text" name="search" placeholder="Search..">
+          </li>
+        </ul>
       </header>
       <div class="main-login">
-        <form class="" action="index.html" method="post">
-          Email<br>
-          <input type="email" name="email" value="email"><br>
-          Contraseña<br>
-          <input type="password" name="password" value="password"><br>
-          <input id="remember-me" type="checkbox" name="remember-me" value="remember-me">
-          <label for="remember-me">Recordarme</label><br>
-          <a href="#"><h6>¿olvidaste tu contraseña?</h6></a><br>
-          <input type="submit" name="Log in" value="Log in">
-        </form>
+        <div class="form-bg">
+          <form class="login" action="" method="post">
+            Email<br>
+            <input type="email" name="email" placeholder="user@email.com"><br>
+            Contraseña<br>
+            <input type="password" name="password" placeholder="Contraseña"><br>
+            <input id="remember-me" type="checkbox" name="remember-me" value="remember-me">
+            <label for="remember-me">Recordarme</label><br>
+            <a href="#"><h6>¿olvidaste tu contraseña?</h6></a><br>
+            <input type="submit" name="Log in" value="Log in">
+          </form>
+        </div>
       </div>
       <footer>
         <div class="links">

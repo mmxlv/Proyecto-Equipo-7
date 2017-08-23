@@ -18,11 +18,13 @@
   width: 150px;
 }
 .nav-bar{
+  margin: 0 auto;
+  width: 160px;
   background-color: #4CAF50;
 }
 .dropbtn {
   width: 160px;
-  /* background-color: #4CAF50; */
+  background-color: inherit;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -54,18 +56,27 @@
   display: block;
 }
 .dropdown:hover .dropbtn {
-  /*  background-color: #3e8e41; */
+  background-color: #3e8e41;
 }
 .searchbar {
   display: inline-block;
   padding: 15px;
-  /* background-color: #4CAF50; */
   height: 50px;
 }
 .searchinput{
   width: 130px;
 }
 .main-registro, .main-login{
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.form-bg {
+  padding: 5px 0px 5px 0px;
+  background-color: #4CAF50;
+}
+footer{
   width: 95%;
   margin: 0 auto;
 }
