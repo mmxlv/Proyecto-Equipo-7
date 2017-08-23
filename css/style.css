@@ -4,7 +4,6 @@
 .container{
   width: 100%;
   background-image: url(../img/bg-img.gif);
-/*  background-color: #674f19; */
   height: 1200px;
 }
 .main-head{
@@ -18,9 +17,12 @@
 .logo{
   width: 150px;
 }
+.nav-bar{
+  background-color: #4CAF50;
+}
 .dropbtn {
   width: 160px;
-  background-color: #4CAF50;
+  /* background-color: #4CAF50; */
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -52,7 +54,16 @@
   display: block;
 }
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+  /*  background-color: #3e8e41; */
+}
+.searchbar {
+  display: inline-block;
+  padding: 15px;
+  /* background-color: #4CAF50; */
+  height: 50px;
+}
+.searchinput{
+  width: 130px;
 }
 .main-registro, .main-login{
   width: 95%;

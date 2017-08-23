@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title></title>
+    <link rel="icon" href="img/favicon-16x16.png">
+    <title>Home</title>
   </head>
   <body>
     <div class="container">
       <header class="main-head">
         <a href="index.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
-        <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-            <a href="#">Home</a>
-            <a href="questions.html">FAQs</a>
-            <a href="#">Prouctos</a>
-            <a href="register.html">Registrarse</a>
-            <a href="login.html">Iniciar Sesion</a>
-          </div>
-        </div>
+        <ul class="nav-bar">
+          <li class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+              <a href="#">Home</a>
+              <a href="questions.html">FAQs</a>
+              <a href="#">Prouctos</a>
+              <a href="register.html">Registrarse</a>
+              <a href="login.html">Iniciar Sesion</a>
+            </div>
+          </li>
+          <li class="searchbar">
+            <input class="searchinput" type="text" name="search" placeholder="Search..">
+          </li>
+        </ul>
       </header>
       <article class="content">
         <div class="producto">
@@ -28,7 +34,9 @@
         </div>
       </article>
       <footer>
-
+        <div class="links">
+          <a href="#">Subir</a>
+        </div>
       </footer>
     </div>
   </body>
