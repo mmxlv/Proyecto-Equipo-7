@@ -7,8 +7,8 @@
             <label for="email">Email</label><br>
             <input id="email" type="email" name="email" value=""><br>
             <label for="register-pass">Contraseña</label><br>
-            <input id="register-pass" type="password" name="login-pass" value=""><br>
-            <input type="button" name="register" value="Register">
+            <input id="register-pass" type="password" name="register-pass" value=""><br>
+            <input type="submit" name="register" value="Register">
           </form>
         </div>
       </section>

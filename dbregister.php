@@ -11,7 +11,7 @@ if($link === false){
 // Escape user inputs for security
 $first_name = mysqli_real_escape_string($link, $_REQUEST['nombre-register']);
 $email = mysqli_real_escape_string($link, $_REQUEST['email']);
-$password = mysqli_real_escape_string($link, $_REQUEST['password']);
+$password = mysqli_real_escape_string($link, $_REQUEST['register-pass']);
 
 // attempt insert query execution
 $sql = "INSERT INTO register (nombre, password, email) VALUES ('$first_name', '$password', '$email')";
