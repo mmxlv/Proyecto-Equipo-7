@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/accordion.css">
     <title>Home</title>
   </head>
   <body>

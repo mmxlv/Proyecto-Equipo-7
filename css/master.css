@@ -99,6 +99,22 @@ article.products-slider{
   margin: auto;
   margin-bottom: 5px;
 }
+.login-form-div{
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 0 10px 0;
+}
+.login-form{
+  text-align: center;
+}
+.register-form-div{
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 0 10px 0;
+}
+label, input{
+  margin: 5px 0 5px 0;
+}
 footer{
   background-color: #EAF2D0;
   height: 100px;
@@ -141,6 +157,12 @@ footer{
   .nav-bar-lg a{
     text-decoration: none;
     float: left;
+  }
+  .register-form-div, .login-form-div{
+    width: 50%;
+  }
+  .register-form, .login-form{
+    text-align: center;
   }
 
 }
