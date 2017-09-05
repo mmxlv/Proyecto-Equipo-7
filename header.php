@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/accordion.css">
+    <script>
+    function showDropdown(){
+      document.getElementById("main-drop").style.display="block";
+    }
+    </script>
     <title>Home</title>
   </head>
   <body>
@@ -17,6 +22,7 @@
     <div class="container">
       <header class="main-head">
         <div class="logo">
+          <!--<img src="" alt="Logo">//-->
           <span>E-Comerce logo</span>
         </div>
         <div>
@@ -30,8 +36,8 @@
         <nav>
           <ul class="nav-bar">
             <li class="dropdown">
-              <button class="dropbtn">Menu</button>
-              <div class="dropdown-content">
+              <button class="dropbtn" onclick="showDropdown()">Menu</button>
+              <div id="main-drop" class="dropdown-content">
                 <a href="index.php">Home</a>
                 <a href="faqs.php">FAQs</a>
                 <a href="login.php">Login</a>

@@ -1,6 +1,4 @@
-*{
-  box-sizing: border-box;
-}
+*{box-sizing:border-box}
 .container{
   width: 100%;
   margin: 0 auto;
@@ -67,9 +65,17 @@
 .dropdown-content a:hover {
   background-color: #f1f1f1
 }
+/*
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropdown:active .dropdown-content{
+  display: block;
+}
+.dropdown:focus .dropdown-content{
+  display: block;
+}
+*/
 .dropdown:hover .dropbtn {
   background-color: #EAF2D0;
 }
@@ -118,6 +124,13 @@ label, input{
 footer{
   background-color: #EAF2D0;
   height: 100px;
+  border-radius: 25px 25px 0 0;
+}
+.social-links ul{
+  overflow: hidden;
+}
+.social-links li{
+  float: left;
 }
 @media only screen and (min-width:768px) {
   .container{
