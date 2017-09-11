@@ -16,6 +16,7 @@
   </head>
   <body>
     <div class="login-head">
+      <!-- login form va por aca en algun lado  //-->
       <span>EMAIL</span>
       <span>SEARCH</span>
     </div>
@@ -26,6 +27,7 @@
           <span>E-Comerce logo</span>
         </div>
         <div>
+          <!-- nav de escritorio //-->
           <ul class="nav-bar-lg">
             <li><a class="dropbtn" href="index.php">Home</a></li>
             <li><a class="dropbtn" href="login.php">Login</a></li>
@@ -34,6 +36,7 @@
           </ul>
         </div>
         <nav>
+          <!-- nav celular y tablet -->
           <ul class="nav-bar">
             <li class="dropdown">
               <button class="dropbtn" onclick="showDropdown()">Menu</button>

@@ -8,7 +8,7 @@
             <input id="login-pass" type="password" name="login-pass" value=""><br>
             <input id="remember-box" type="checkbox" name="remember" value="">
             <label for="remember-box">Recordarme</label><br>
-            <input type="button" name="Login" value="Login">
+            <input type="submit" name="Login" value="Login">
           </form>
         </div>
       </section>
