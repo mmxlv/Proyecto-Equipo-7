@@ -36,4 +36,7 @@ function validarInformacion($informacion){
    }
   return $arrayDeErrores;
 }
+
+
+/* faltan las funciones de empaquetado y guardado de Json */
 ?>

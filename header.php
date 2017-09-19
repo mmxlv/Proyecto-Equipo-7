@@ -33,6 +33,7 @@
             <li><a class="dropbtn" href="login.php">Login</a></li>
             <li><a class="dropbtn" href="register.php">Register</a></li>
             <li><a class="dropbtn" href="faqs.php">FAQs</a></li>
+            <!-- agregar links a panel de usuario y desactivar login y register si el user esta logieado -->
           </ul>
         </div>
         <nav>
@@ -45,6 +46,7 @@
                 <a href="faqs.php">FAQs</a>
                 <a href="login.php">Login</a>
                 <a href="register.php">Register</a>
+                <!-- lo mismo que en el nav de escritorio -->
               </div>
             </li>
           </ul>
