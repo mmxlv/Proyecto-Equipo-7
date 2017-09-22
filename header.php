@@ -1,4 +1,4 @@
-<?php require_once 'funciones.php'; ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +18,7 @@
   <body>
     <div class="login-head">
       <!-- login form va por aca en algun lado  //-->
+      <!-- si hay usuario logeado poner bienvenido y el usernane -->
       <span>EMAIL</span>
       <span>SEARCH</span>
     </div>
