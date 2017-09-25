@@ -3,17 +3,6 @@
         <div class="banner">
           <img src="images/banner.jpg" alt="banner" width="100%">
         </div>
-        <article class="main-product">
-          <img src="images/img6.jpg" alt="New product" width="100%">
-        </article>
-        <article class="products">
-          <img src="images/img1.jpg" alt="">
-          <img src="images/img2.jpg" alt="">
-          <img src="images/img3.jpg" alt="">
-          <img src="images/img4.jpg" alt="">
-          <img src="images/img1.jpg" alt="">
-          <img src="images/img2.jpg" alt="">
-        </article>
         <article class="products-slider">
           <div class="slideshow-container">
             <div class="mySlides fade">
@@ -37,6 +26,14 @@
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
           </div>
+        </article>
+        <article class="products">
+          <img src="images/img1.jpg" alt="">
+          <img src="images/img2.jpg" alt="">
+          <img src="images/img3.jpg" alt="">
+          <img src="images/img4.jpg" alt="">
+          <img src="images/img1.jpg" alt="">
+          <img src="images/img2.jpg" alt="">
         </article>
       </section>
       <script src="js/slider.js"></script>

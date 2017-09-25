@@ -1,0 +1,39 @@
+#loginBoxDiv{
+  display: none;
+  z-index: 25;
+  text-align: center;
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  background-color: grey;
+  padding: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loginBoxBtn{
+  font-family: Times New Roman;
+  font-size: 1.15em;
+  border-style: none;
+  background-color: inherit;
+  color: white;
+  float: right;
+  margin: 11px 1px 0 0;
+}
+.login-head .unique{
+  margin-right: 0;
+}
+#registerBoxDiv{
+  display: none;
+  z-index: 25;
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  background-color: grey;
+  padding: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
