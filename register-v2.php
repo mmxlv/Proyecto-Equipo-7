@@ -13,7 +13,7 @@
 </div>
 <!---->
 <div id="registerBoxDiv">
-  <form class="register-form" action="register.php" method="post" enctype="multipart/form-data">
+  <form class="register-form" action="<?php //falta accion ?>" method="post" enctype="multipart/form-data">
     <label for="username">Nombre</label><br>
     <input  id="username" type="text" name="username" value=""><br>
     <label for="email">Email</label><br>

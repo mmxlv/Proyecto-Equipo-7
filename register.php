@@ -11,7 +11,8 @@ if ($_POST) {
   $userEmail = $_POST['email'];
   $arrayErrores = validarInformacion($_POST);
   if (count($arrayErrores) == 0) {
-    require_once('dbregister.php');
+    //require_once('dbregister.php');
+    //registro por json
     //header('location:dbregister.php');
     exit;
   }
