@@ -11,11 +11,12 @@
 }
 .login-head{
   width: 100%;
+  margin: 0 auto;
   height: 50px;
-  display: inline-block;
   background-color: black;
   color: white;
   overflow: hidden;
+  max-width: 1200px;
 }
 .login-head span{
   float: right;
@@ -78,7 +79,7 @@
   margin: auto;
 }
 article.products{
-  width: 95%;
+  width: 95.8%;
   margin: auto;
   overflow: hidden;
 }
@@ -94,24 +95,35 @@ article.products-slider{
   margin: auto;
   margin-bottom: 5px;
 }
-.login-form-div{
-  width: 95%;
+.login-form-div, .refon{
+  width: 200px;
   margin: 0 auto;
   padding: 10px 0 10px 0;
-}
-.login-form{
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  border-color: #808080;
+  margin-bottom: 5px;
+  background-color: #A9A9A9;
   text-align: center;
 }
 .register-form-div{
-  width: 95%;
+  text-align: center;
+  width: 265px;
   margin: 0 auto;
   padding: 10px 0 10px 0;
+  border: 2px;
+  border-style: solid;
+  border-color: #808080;
+  margin-bottom: 5px;
+  border-radius: 25px;
+  background-color: #A9A9A9;
 }
 label, input{
   margin: 5px 0 5px 0;
 }
 footer{
-  background-color: #EAF2D0;
+  background-color: rgb(57, 57, 57);
   height: 100px;
   border-radius: 25px 25px 0 0;
 }
@@ -159,9 +171,6 @@ footer{
   .nav-bar-lg a{
     text-decoration: none;
     float: left;
-  }
-  .register-form-div, .login-form-div{
-    width: 50%;
   }
   .register-form, .login-form{
     text-align: center;

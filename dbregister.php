@@ -1,4 +1,6 @@
 <?php
+require_once 'funciones.php';
+
 $link = mysqli_connect("localhost", "root", "", "register");
 
 if($link === false){

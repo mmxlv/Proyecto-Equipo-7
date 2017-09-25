@@ -11,12 +11,8 @@ if ($_POST) {
   $userEmail = $_POST['email'];
   $arrayErrores = validarInformacion($_POST);
   if (count($arrayErrores) == 0) {
- /* reemplazar por sistema json para sprint 2
     require_once('dbregister.php');
- */
-
-    // funcion guardarUsuarioEnJson($_POST)
-
+    //header('location:dbregister.php');
     exit;
   }
 }
