@@ -1,5 +1,5 @@
 <?php
- require_once("funcionesDePrueba.php"); ?>
+ require_once ("funcionesDePrueba.php"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +8,17 @@
     <title>formulario de prueba</title>
   </head>
   <body>
+<?php if (isset($_POST['boton'])): ?>
+  <?php if (count($arrayDeErrores) > 0) : ?>
+      <ul style="color:red">
+        <?php foreach ($arrayDeErrores as $error) :?>
+          <li>
+            <?=$error?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif; ?>
+<?php endif; ?>
 
     <form class="formulario" action="pruebaregister.php" method="post" enctype="multipart/form-data">
       <label for="name">Escriba su nombre:</label> <input type="text" name="name" value="<?=$userNombre?>" placeholder="Escriba su nombre"> <br> <br>

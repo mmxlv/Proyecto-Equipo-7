@@ -1,31 +1,19 @@
 <?php
-$userNombre = $_POST["name"];
-$userMail = $_POST["email"];
-$userEdad = $_POST["edad"];
-$userContraseña = $_POST["password"];
-$userCContraseña = $_POST["cpassword"];
+// Persistencia de datos
+$userNombre = '';
+$userMail = '';
+$userEdad = '';
 
-$arrayDeErrores = validarInformacion($_POST);
-// reedireccionar si el formulario no tiene errores
-if ($_POST) {
-  if (count($arrayDeErrores) == 0) {
-    header("location:bienvenido.php");
-  }
+if (isset($_POST['boton'])) {
+  $arrayDeErrores = validarInformacion($_POST);
 }
+// reedireccionar si el formulario no tiene errores
+// if ($_POST) {
+//   if (count($arrayDeErrores) == 0) {
+//     header("location:bienvenido.php");
+//   }
+// }
 ?>
-<?php
-//pero si hay errores, queremos decirle al usuario.. cuales
-  if (count($arrayDeErrores) > 0) : ?>
-    <ul style="color:red">
-      <?php // para cada error en el arrayDeErrores, queremos ver el error en una lista y de rojo..
-        foreach ($arrayDeErrores as $error) :?>
-        <li>
-          <?=$error?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-  <?php endif; ?>
-
   <?php // para facilitar la escritura posterior, es conveniente realizar una funcion q aglobe los errores.
     function validarInformacion($informacion) {
       $arrayErrores = [];
@@ -86,7 +74,4 @@ function guardarImagen() {
     move_uploaded_file($archivo, $miArchivo);
   }
 }
-  return guardarImagen();
-
-
   ?>
