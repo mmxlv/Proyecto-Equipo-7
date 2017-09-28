@@ -1,4 +1,13 @@
-<?php include_once ("header.php") ?>
+<?php include_once ("header.php");
+
+if (isset($_POST['dname'])) {
+  session_destroy();
+  unset($_COOKIE);
+  $email = "";
+  setcookie("usuarioLogueado", $email ,time() -1);
+}
+
+?>
       <section>
         <div class="banner">
           <img src="images/banner.jpg" alt="banner" width="100%">

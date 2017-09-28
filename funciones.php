@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION["usuarioLogueado"]) && isset($_COOKIE["usuarioLogueado"])) {
+    $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
+}
+
 function validarInformacion($informacion){
   $arrayDeErrores = [];
    if (filter_var($informacion['email'], FILTER_VALIDATE_EMAIL) == FALSE) {
@@ -39,12 +43,9 @@ function validarInformacion($informacion){
 }
 function crearUsuario($data){
   return [
-          "name" => $data['name'],
           "username" => $data["username"],
-          "edad" => $data["edad"],
           "email" => $data["email"],
           "password" => password_hash($data["password"], PASSWORD_DEFAULT),
-          "pais" => $data["pais"]
             ];
 }
 function guardarUsuario($usuario) {
@@ -105,6 +106,52 @@ function validarDatos($datos){
   }
   $_SESSION['email'] = $datos['email'];
   return $errores;
+}
+
+function validarLogin($informacion){
+  $controlDeErrores=[];
+
+  if (strlen($informacion["email"])==0){
+    $controlDeErrores["email"] = "Falta ingresar email";
+  }
+
+  if (filter_var($informacion["email"],FILTER_VALIDATE_EMAIL) == false){
+    $controlDeErrores["email"] = "Email invalido";
+  }
+
+  if(traerPorEmail ($informacion["email"])== NULL){
+    $controlDeErrores["email"] = "El usuario no existe";
+
+  }
+  $usuario = traerPorEmail($informacion['email']);
+  if (password_verify($informacion['password'], $usuario['password']) != true) {
+    $controlDeErrores['password'] = "La contraseña no verifica";
+  }
+  return $controlDeErrores;
+}
+
+function Loguear ($email){
+  $_SESSION ["usuarioLogueado"]= $email;
+}
+
+function estaLogueado(){
+  if(isset($_SESSION ["usuarioLogueado"])){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function usuarioLogueado(){
+  if (estaLogueado()){
+    return traerPorEmail ($_SESSION ["usuarioLogueado"]);
+  }else {
+    return NULL;
+  }
+}
+
+function recordarUsuario ($email){
+  setcookie ("usuarioLogueado", $email, time() + 60*60*24*3);
 }
 
 ?>

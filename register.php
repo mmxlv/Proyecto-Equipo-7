@@ -11,10 +11,13 @@ if ($_POST) {
   $userEmail = $_POST['email'];
   $arrayErrores = validarInformacion($_POST);
   if (count($arrayErrores) == 0) {
+    $nuevoUser = crearUsuario($_POST);
+    guardarUsuario($nuevoUser);
+    header("location:index.php");
+    exit;
     //require_once('dbregister.php');
     //registro por json
     //header('location:dbregister.php');
-    exit;
   }
 }
 

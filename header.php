@@ -1,17 +1,15 @@
 <?php require_once 'funciones.php';
-
-function setup(){
-  return $_SESSION['logueado'] = ['1'];
-}
-if (isset($_POST['name'])) {
-  setup();
-  $username = $_SESSION['username'];
-  $id = $_SESSION['id'];
+if (estaLogueado()==true) {
+  $TEST = traerPorEmail($_SESSION['usuarioLogueado']);
+  $username = $TEST['username'];
+  $id = $TEST['id'];
 }
 if (isset($_POST['dname'])) {
   session_destroy();
   header('location:index.php');
+  exit;
 }
+require_once 'register-v2.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +21,7 @@ if (isset($_POST['dname'])) {
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/accordion.css">
     <link rel="stylesheet" href="css/aio.css">
-    <?php if (isset($_SESSION['logueado'])): ?>
+    <?php if (estaLogueado() == true): ?>
       <style>
         .not-logged{
           display: none;
@@ -62,20 +60,21 @@ if (isset($_POST['dname'])) {
         <div class="loginBoxBtn">
           <span>Bienvenido</span>
           <a href="panel.php?uid=<?=$id?>"><?=$username?></a>
+          
         </div>
       </div>
       <!-- End -->
       <span>EMAIL</span>
       <span>SEARCH</span>
       <!-- form q simula el estado logueado -->
-      <form class="" action="index.php" method="post">
+      <!-- <form class="" action="index.php" method="post">
         <input type="submit" name="name" value="name">
         <input type="submit" name="dname" value="dname">
-      </form>
+      </form> -->
       <!-- end -->
     </div>
     <div class="container">
-        <?php require_once 'register-v2.php'; ?>
+
       <header class="main-head">
         <div class="logo">
           <!--<img src="" alt="Logo">//-->
