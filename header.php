@@ -4,8 +4,9 @@ if (estaLogueado()==true) {
   $username = $TEST['username'];
   $id = $TEST['id'];
 }
-if (isset($_POST['dname'])) {
+if (isset($_POST['logout'])) {
   session_destroy();
+  unset($_COOKIE);
   header('location:index.php');
   exit;
 }
@@ -53,19 +54,21 @@ require_once 'register-v2.php';
       <!-- Faltan styles -->
       <div class='not-logged'>
         <button class="loginBoxBtn" type="button" name="button" onclick="registerBox()">Register</button>
-        <span class="unique">Or</span>
+        <span class="temp">Or</span>
         <button class="loginBoxBtn" type="button" name="button" onclick="loginBox()">Login</button>
       </div>
       <div class="logged">
         <div class="loginBoxBtn">
-          <span>Bienvenido</span>
-          <a href="panel.php?uid=<?=$id?>"><?=$username?></a>
-          
+          <span class="loginBoxTxt">Bienvenido</span>
+          <a class="loginBoxLnk" href="panel.php?uid=<?=$id?>"><?=$username?></a>
+          <form class="loginBoxFrm" action="index.php" method="post">
+            <input class="loginBoxInp" type="submit" name="logout" value="Log Out">
+          </form>
         </div>
       </div>
       <!-- End -->
-      <span>EMAIL</span>
-      <span>SEARCH</span>
+      <span class="temp">EMAIL</span>
+      <span class="temp">SEARCH</span>
       <!-- form q simula el estado logueado -->
       <!-- <form class="" action="index.php" method="post">
         <input type="submit" name="name" value="name">

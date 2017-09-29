@@ -18,7 +18,14 @@
   overflow: hidden;
   max-width: 1200px;
 }
-.login-head span{
+.loginBoxTxt{
+  display: inline-block;
+  float: unset;
+}
+.loginBoxFrm{
+  display: inline-block;
+}
+.temp{
   float: right;
   margin-right: 10px;
   margin-top: 15px;

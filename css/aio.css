@@ -21,9 +21,6 @@
   float: right;
   margin: 11px 1px 0 0;
 }
-.login-head .unique{
-  margin-right: 0;
-}
 #registerBoxDiv{
   display: none;
   z-index: 25;
