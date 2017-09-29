@@ -1,9 +1,11 @@
 <?php
+// require_once 'funciones.php';
+// if (estaLogueado() == true) {
+//   header("Location:index.php");
+//   exit;
+// }
 require_once 'header.php';
-if (estaLogueado() == true) {
-  header("Location:index.php");
-  exit;
-}
+
 
 $listErrores = [];
 //Actualiza la pass en json
@@ -16,13 +18,9 @@ if (isset($_POST['npassword'])) {
         <p>Exito al actualizar la contraseña!</p>
         <a href="index.php">Volver</a>
       </div>
-    <?php
-    require_once 'footer.php';
-    exit;
+<?php
   }else {
     echo "Algo salio mal al actualizar la contraseña!";
-    require_once 'footer.php';
-    exit;
   }
 }
 //valida los datos y si son correctos carga el form para cambiar la password
@@ -44,8 +42,6 @@ if (isset($_POST['valid'])) {
         </div>
 <?php
   endif;
-  require_once 'footer.php';
-  exit;
 }
 //carga el form para validar al usuario
 if (isset($_GET['ref'])) { ?>
@@ -54,15 +50,13 @@ if (isset($_GET['ref'])) { ?>
       <form class="" action="login.php" method="post">
         <label for="">Email:</label><br>
         <input type="email" name="email" value=""><br>
-        <label for="">Edad:</label><br>
-        <input type="text" name="edad" value=""><br>
+        <label for="">Nombre de Usuario:</label><br>
+        <input type="text" name="username" value=""><br>
         <input type="submit" name="valid" value="Siguiente">
       </form>
     </div>
 
 <?php
-require_once 'footer.php';
-exit;
 }
 //Persistencia de datos
 $emailDefault= "";
@@ -73,7 +67,7 @@ $checkboxDefault = "";
 
 $listadoErrores = [];
 
-if ($_POST){
+if (isset($_POST['Login'])){
 
  $listadoErrores=validarLogin($_POST);
   if(count($listadoErrores)==0){
@@ -82,8 +76,10 @@ if ($_POST){
     if (isset($_POST["remember"])){
       recordarUsuario($_POST["email"]);
     }
-    header("Location:index.php");
-    exit;
+    if (estaLogueado() == true) {
+    header('location:index.php');
+    }
+    // exit;
   }
   // PERSISTENCIA DE DATOS
 
@@ -102,23 +98,27 @@ if ($_POST){
 
 if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
   <ul style="color:red">
-    <?php foreach($listadoErrores as $error) : ?>
+<?php foreach($listadoErrores as $error) : ?>
       <li><?=$error?></li><br>
-    <?php endforeach; ?>
+<?php endforeach; ?>
   </ul>
 <?php endif; ?>
-      <section>
-        <div class="login-form-div">
-          <form class="login-form" action="" method="post">
-            <label for="email">Email</label><br>
-            <input id="email" type="email" name="email" value="<?=$emailDefault?>"><br>
-            <label for="login-pass">Contraseña</label><br>
-            <input id="login-pass" type="password" name="password" value="<?=$passwordDefault?>"><br>
-            <a href="login.php?ref=1">¿Olvido su contraseña?</a><br>
-            <input id="remember-box" type="checkbox" name="remember" value="<?=$checkboxDefault?>">
-            <label for="remember-box">Recordarme</label><br>
-            <input type="submit" name="Login" value="Login">
-          </form>
-        </div>
-      </section>
-<?php include_once ("footer.php") ?>
+<?php if (empty($_GET) && empty($_POST)): ?>
+  <section>
+    <div class="login-form-div">
+      <form class="login-form" action="" method="post">
+        <label for="email">Email</label><br>
+        <input id="email" type="email" name="email" value="<?=$emailDefault?>"><br>
+        <label for="login-pass">Contraseña</label><br>
+        <input id="login-pass" type="password" name="password" value="<?=$passwordDefault?>"><br>
+        <a href="login.php?ref=1">¿Olvido su contraseña?</a><br>
+        <input id="remember-box" type="checkbox" name="remember" value="<?=$checkboxDefault?>">
+        <label for="remember-box">Recordarme</label><br>
+        <input type="submit" name="Login" value="Login">
+      </form>
+    </div>
+  </section>
+<?php endif; ?>
+
+
+<?php include_once ("footer.php"); ?>

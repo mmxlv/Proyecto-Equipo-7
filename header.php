@@ -57,15 +57,17 @@ require_once 'register-v2.php';
         <span class="temp">Or</span>
         <button class="loginBoxBtn" type="button" name="button" onclick="loginBox()">Login</button>
       </div>
-      <div class="logged">
-        <div class="loginBoxBtn">
-          <span class="loginBoxTxt">Bienvenido</span>
-          <a class="loginBoxLnk" href="panel.php?uid=<?=$id?>"><?=$username?></a>
-          <form class="loginBoxFrm" action="index.php" method="post">
-            <input class="loginBoxInp" type="submit" name="logout" value="Log Out">
-          </form>
+      <?php if (isset($_SESSION['usuarioLogueado'])): ?>
+        <div class="logged">
+          <div class="loginBoxBtn">
+            <span class="loginBoxTxt">Bienvenido</span>
+            <a class="loginBoxLnk" href="panel.php?uid=<?=$id?>"><?=$username?></a>
+            <form class="loginBoxFrm" action="index.php" method="post">
+              <input class="loginBoxInp" type="submit" name="logout" value="Log Out">
+            </form>
+          </div>
         </div>
-      </div>
+      <?php endif; ?>
       <!-- End -->
       <span class="temp">EMAIL</span>
       <span class="temp">SEARCH</span>

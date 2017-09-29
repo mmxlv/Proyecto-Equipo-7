@@ -101,8 +101,8 @@ function validarDatos($datos){
   if ($datos['email'] != $server['email']) {
     $errores['email'] = 'El email es invalido';
   }
-  if ($datos['edad'] != $server['edad']) {
-    $errores['edad'] = 'Edad invalida';
+  if ($datos['username'] != $server['username']) {
+    $errores['username'] = 'Nombre Invalido';
   }
   $_SESSION['email'] = $datos['email'];
   return $errores;
