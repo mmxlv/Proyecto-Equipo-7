@@ -2,7 +2,7 @@
 if (estaLogueado()==true) {
   $TEST = traerPorEmail($_SESSION['usuarioLogueado']);
   $username = $TEST['username'];
-  $id = $TEST['id'];
+  //$id = $TEST['id'];
 }
 if (isset($_POST['logout'])) {
   session_destroy();
@@ -61,7 +61,9 @@ require_once 'register-v2.php';
         <div class="logged">
           <div class="loginBoxBtn">
             <span class="loginBoxTxt">Bienvenido</span>
-            <a class="loginBoxLnk" href="panel.php?uid=<?=$id?>"><?=$username?></a>
+            <!-- el $id viene de la db de mysql me olvide de sacarlo antes -->
+            <!--<a class="loginBoxLnk" href="panel.php?uid=<?php//$id?>"><?php//$username?></a>//-->
+            <a class="loginBoxLnk" href="#"><?=$username?></a>
             <form class="loginBoxFrm" action="index.php" method="post">
               <input class="loginBoxInp" type="submit" name="logout" value="Log Out">
             </form>
