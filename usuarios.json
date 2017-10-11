@@ -2,3 +2,5 @@
 {"name":"Andres","username":"usuario2","edad":"22","email":"dsa@dsa.com","password":"$2y$10$2uhXG0rQ67XgsgmnhyLRQuvITLUcK1EdDaLzFT1vGc96djxbYBAJ6","pais":"AF"}
 {"username":"user","email":"email@uno.com","password":"$2y$10$HguhX12LXULubXTo75QU8uNsAS.OH4m8YQSGcicr2kkvic0y5o9sC","id":"1"}
 {"username":"Jose","email":"jose@algo.com","password":"$2y$10$FLUD2KzJHcw1\/1UiOxcWS.p3xP\/kBaqj5hcjg1GMxWzJ59MW23bWC","id":"2"}
+{"username":"user3","email":"email@algo.com","password":"$2y$10$L1tL81amHWva68dcVk7U1uJiBIkmc.SSnojJOZcnMYcTtq8cgZer."}
+{"username":"user5","email":"user5@email.com","password":"$2y$10$iIEa7VzjMeXfFO1QK.lsmewvb2otS0OYTIepaxDyHtlemNzLit3ri"}

@@ -1,8 +1,7 @@
 <?php require_once 'funciones.php';
 if (estaLogueado()==true) {
-  $TEST = traerPorEmail($_SESSION['usuarioLogueado']);
-  $username = $TEST['username'];
-  //$id = $TEST['id'];
+  $username = $_SESSION['nombre'];
+  $id = $_SESSION['id'];
 }
 if (isset($_POST['logout'])) {
   session_destroy();
@@ -61,9 +60,7 @@ require_once 'register-v2.php';
         <div class="logged">
           <div class="loginBoxBtn">
             <span class="loginBoxTxt">Bienvenido</span>
-            <!-- el $id viene de la db de mysql me olvide de sacarlo antes -->
-            <!--<a class="loginBoxLnk" href="panel.php?uid=<?php//$id?>"><?php//$username?></a>//-->
-            <a class="loginBoxLnk" href="#"><?=$username?></a>
+            <a class="loginBoxLnk" href="panel.php?uid=<?=$id?>"><?=$username?></a>
             <form class="loginBoxFrm" action="index.php" method="post">
               <input class="loginBoxInp" type="submit" name="logout" value="Log Out">
             </form>
@@ -73,12 +70,6 @@ require_once 'register-v2.php';
       <!-- End -->
       <span class="temp">EMAIL</span>
       <span class="temp">SEARCH</span>
-      <!-- form q simula el estado logueado -->
-      <!-- <form class="" action="index.php" method="post">
-        <input type="submit" name="name" value="name">
-        <input type="submit" name="dname" value="dname">
-      </form> -->
-      <!-- end -->
     </div>
     <div class="container">
 

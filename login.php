@@ -1,11 +1,5 @@
 <?php
-// require_once 'funciones.php';
-// if (estaLogueado() == true) {
-//   header("Location:index.php");
-//   exit;
-// }
 require_once 'header.php';
-
 
 $listErrores = [];
 //Actualiza la pass en json
@@ -62,14 +56,14 @@ if (isset($_GET['ref'])) { ?>
 $emailDefault= "";
 $passwordDefault = "";
 $checkboxDefault = "";
-
-
-
 $listadoErrores = [];
 
 if (isset($_POST['Login'])){
 
- $listadoErrores=validarLogin($_POST);
+$listadoErrores=loginUserMysql($_POST);
+// modo json
+// $listadoErrores=validarLogin($_POST);
+// este if posiblemente no sirve ya que la funcion de mysql se encarga de setear casi todo respecto a la sesion
   if(count($listadoErrores)==0){
     loguear($_POST["email"]);
 
@@ -79,7 +73,7 @@ if (isset($_POST['Login'])){
     if (estaLogueado() == true) {
     header('location:index.php');
     }
-    // exit;
+    // exit; sobra(?)
   }
   // PERSISTENCIA DE DATOS
 
@@ -102,11 +96,11 @@ if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
       <li><?=$error?></li><br>
 <?php endforeach; ?>
   </ul>
-<?php endif; ?>
-<?php if (empty($_GET) && empty($_POST)): ?>
+<?php endif;
+if (empty($_GET) && empty($_POST)): ?>
   <section>
     <div class="login-form-div">
-      <form class="login-form" action="" method="post">
+      <form class="login-form" action="login.php" method="post">
         <label for="email">Email</label><br>
         <input id="email" type="email" name="email" value="<?=$emailDefault?>"><br>
         <label for="login-pass">Contraseña</label><br>
@@ -118,7 +112,7 @@ if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
       </form>
     </div>
   </section>
-<?php endif; ?>
-
-
-<?php include_once ("footer.php"); ?>
+<?php
+endif;
+include_once ("footer.php");
+?>

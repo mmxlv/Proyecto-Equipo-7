@@ -41,6 +41,66 @@ function validarInformacion($informacion){
    }
   return $arrayDeErrores;
 }
+function crearDbMysql(){
+  $dsn = 'mysql:host=localhost;dbname=register;charset=utf8mb4;port=3306';
+
+}
+function crearUsuarioMysql($data){
+  $dsn = 'mysql:host=localhost;dbname=register;charset=utf8mb4;port=3306';
+  $db_user = 'root';
+  $db_pass = '';
+  $passhash = password_hash($data['password'], PASSWORD_DEFAULT);
+  $username = $data['username'];
+  $email = $data['email'];
+  try {
+    $db = new PDO($dsn, $db_user, $db_pass);
+    $db->beginTransaction();
+    $query = $db->prepare('INSERT INTO register (nombre, password, email) VALUES (:username, :password, :email)');
+    $query->bindValue(':username', $username);
+    $query->bindValue(':password', $passhash);
+    $query->bindValue(':email', $email);
+    $query->execute();
+    $db->commit();
+  } catch (PDOException $e) {
+      $db->rollBack();
+      return $e->getMessage();
+  }
+  $db = NULL;
+}
+
+function loginUserMysql($data){
+  $dsn = 'mysql:host=localhost;dbname=register;charset=utf8mb4;port=3306';
+  $db_user = 'root';
+  $db_pass = '';
+
+  try {
+    $db = new PDO($dsn, $db_user, $db_pass);
+    $db->beginTransaction();
+    $query = $db->prepare('SELECT * FROM register WHERE email LIKE :userLogin');
+    $query->bindValue(':userLogin', $data['email']);
+    $query->execute();
+    $db->commit();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+  } catch (PDOException $e) {
+    $db->rollBack();
+    echo $e->getMessage();
+  }
+  $db = NULL;
+  $error = [];
+  $user = $result[0];
+  if (password_verify($data['password'], $user['password']) != true) {
+    $error['pass'] = 'hay un problema';
+  }
+  if ($data['email'] != $user['email']) {
+    $error['email'] = 'hay un problema';
+  }
+  if(count($error) == 0){
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['email'] = $user['email'];
+    $_SESSION['nombre'] = $user['nombre'];
+  }
+}
+
 function crearUsuario($data){
   return [
           "username" => $data["username"],

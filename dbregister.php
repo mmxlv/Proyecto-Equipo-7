@@ -1,32 +1,27 @@
 <?php
-require_once 'funciones.php';
 
-$link = mysqli_connect("localhost", "root", "", "register");
-
-if($link === false){
-    die("ERROR: No se pudo conectar. " . mysqli_connect_error());
-}
+$dsn = 'mysql:host=localhost;dbname=register;charset=utf8mb4;port=3306';
+$db_user = 'root';
+$db_pass = '';
 
 //password hashing
-$passhash = password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
+$passhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$username = $_POST['username'];
+$email = $_POST['email'];
 
-$username = mysqli_real_escape_string($link, $_REQUEST['username']);
-$email = mysqli_real_escape_string($link, $_REQUEST['email']);
-$password = mysqli_real_escape_string($link, $passhash);
-
-
-$sql = "INSERT INTO register (nombre, password, email) VALUES ('$username', '$password', '$email')";
-if(mysqli_query($link, $sql)){
-    include_once ("header.php"); ?>
-
-            <div style="text-align: center; margin: 10px" class="exito">
-              <span>Exito al registrarse!</span>
-            </div>
-
-<?php    include_once("footer.php");
-} else{
-    echo "ERROR: No se pudo insertar los datos en la base de datos."/*$sql*/  . mysqli_error($link);
+try {
+  $db = new PDO($dsn, $db_user, $db_pass);
+  $query = $db->prepare('INSERT INTO register (nombre, password, email) VALUES (:username, :password, :email)');
+  $query->beginTransaction();
+  $query->bindValue(':username', $username);
+  $query->bindValue(':password', $passhash);
+  $query->bindValue(':email', $email);
+  $query->exec();
+  $query->commit();
+} catch (PDOException $e) {
+    $query->rollBack();
+    echo $e->getMessage();
 }
-mysqli_close($link);
-exit;
+
+$db = NULL;
 ?>

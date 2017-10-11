@@ -2,6 +2,7 @@
 $arrayErrores = [];
 $userName = '';
 $userEmail = '';
+$mode = 'mysql';
 require_once('funciones.php');
 
 // Validacion de datos
@@ -11,13 +12,16 @@ if ($_POST) {
   $userEmail = $_POST['email'];
   $arrayErrores = validarInformacion($_POST);
   if (count($arrayErrores) == 0) {
-    $nuevoUser = crearUsuario($_POST);
-    guardarUsuario($nuevoUser);
-    header("location:index.php");
+    if ($mode == 'mysql') {
+      var_dump($_POST);
+      crearUsuarioMysql($_POST);
+    }
+    elseif ($mode == 'json') {
+      $nuevoUser = crearUsuario($_POST);
+      guardarUsuario($nuevoUser);
+    }
+    header('location:index.php');
     exit;
-    //require_once('dbregister.php');
-    //registro por json
-    //header('location:dbregister.php');
   }
 }
 
