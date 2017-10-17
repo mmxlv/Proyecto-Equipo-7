@@ -1,3 +1,4 @@
+<!-- no esta incluido //-->
 <div id="loginBoxDiv" class="">
   <form class="aio" action="<?php //falta accion ?>" method="post">
     <label for="">Email:</label><br>

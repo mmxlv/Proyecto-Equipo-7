@@ -9,7 +9,7 @@ if (isset($_POST['logout'])) {
   header('location:index.php');
   exit;
 }
-require_once 'register-v2.php';
+//require_once 'register-v2.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,25 +21,25 @@ require_once 'register-v2.php';
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/accordion.css">
     <link rel="stylesheet" href="css/aio.css">
-    <?php if (estaLogueado() == true): ?>
-      <style>
+    <?php //if (estaLogueado() == true): ?>
+      <!-- /*<style>
         .not-logged{
           display: none;
         }
         .logged{
           display: block;
         }
-      </style>
-    <?php else: ?>
-      <style>
+      </style>*/ -->
+    <?php //else: ?>
+      <!-- /*<style>
         .not-logged{
           display: block;
         }
         .logged{
           display: none;
         }
-      </style>
-    <?php endif; ?>
+      </style>*/ -->
+    <?php //endif; ?>
     <script>
     function showDropdown(){
       document.getElementById("main-drop").style.display="block";
@@ -49,8 +49,8 @@ require_once 'register-v2.php';
     <title>Home</title>
   </head>
   <body>
-    <div class="login-head">
-      <!-- Faltan styles -->
+    <div class="login-head" style="display:none">
+      <!-- Faltan styles - no esta display -->
       <div class='not-logged'>
         <button class="loginBoxBtn" type="button" name="button" onclick="registerBox()">Register</button>
         <span class="temp">Or</span>
@@ -67,16 +67,14 @@ require_once 'register-v2.php';
           </div>
         </div>
       <?php endif; ?>
-      <!-- End -->
       <span class="temp">EMAIL</span>
       <span class="temp">SEARCH</span>
     </div>
+    <!-- End - no esta display  -->
     <div class="container">
-
       <header class="main-head">
         <div class="logo">
-          <img src="images/logo.png" alt="Logo">
-          <!-- <span>E-Comerce logo</span> -->
+          <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
         </div>
         <div>
           <!-- nav de escritorio //-->
@@ -91,12 +89,12 @@ require_once 'register-v2.php';
           <!-- nav celular y tablet -->
           <ul class="nav-bar">
             <li class="dropdown">
-              <button class="dropbtn" onclick="showDropdown()">menu</button>
+              <button class="dropbtn" onclick="showDropdown()">MENU</button>
               <div id="main-drop" class="dropdown-content">
-                <a href="index.php">home</a>
+                <a href="index.php">Home</a>
+                <a href="login.php">Login</a>
+                <a href="register.php">Register</a>
                 <a href="faqs.php">FAQs</a>
-                <a href="login.php">login</a>
-                <a href="register.php">register</a>
               </div>
             </li>
           </ul>

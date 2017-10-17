@@ -13,7 +13,6 @@ if ($_POST) {
   $arrayErrores = validarInformacion($_POST);
   if (count($arrayErrores) == 0) {
     if ($mode == 'mysql') {
-      var_dump($_POST);
       crearUsuarioMysql($_POST);
     }
     elseif ($mode == 'json') {

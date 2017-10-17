@@ -2,6 +2,7 @@
 require_once 'header.php';
 
 $listErrores = [];
+// falta pass recovery en mysql
 //Actualiza la pass en json
 if (isset($_POST['npassword'])) {
   $listErrores = validatePassword($_POST);
