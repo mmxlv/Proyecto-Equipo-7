@@ -1,10 +1,25 @@
 *{box-sizing:border-box}
+
+html,body,ul,img,div{
+	margin:0px;
+	border:0px;
+	padding:0px;
+	overflow-x:hidden;
+}
+
+/*@font-face {
+	font-family: avenir;
+	src: url(fonts/avenir.ttf);*/
+
 .container{
   width: 100%;
   margin: 0 auto;
+  padding: 0px;
+  max-width: 1200px;
+
 }
 .main-head{
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 5px;
@@ -12,28 +27,40 @@
 .login-head{
   width: 100%;
   margin: 0 auto;
-  height: 50px;
-  background-color: black;
-  color: white;
+  height: 60px;
+  color: black;
+  font-family: avenir;
+  font-size: 0.7em;
   overflow: hidden;
-  max-width: 1200px;
 }
+
+
 .loginBoxTxt{
   display: inline-block;
   float: unset;
 }
+
 .loginBoxFrm{
   display: inline-block;
 }
+
 .temp{
   float: right;
   margin-right: 10px;
   margin-top: 15px;
+  margin-left: 10px;
 }
+
 .logo{
   clear: both;
-  width: 95%;
+  width: 100%;
   margin: auto;
+  padding: 0px;
+}
+
+.logo img{
+	width: 60%;
+	margin-bottom: 10px;
 }
 .nav-bar-lg{
   display: none;
@@ -41,16 +68,17 @@
 .nav-bar{
   margin: 0 auto;
   width: 160px;
-  background-color: #EAF2D0;
+  /*background-color: #EAF2D0;*/
 }
 .dropbtn {
   width: 160px;
-  background-color: inherit;
   color: black;
+  font-family: avenir;
   padding: 16px;
-  font-size: 16px;
+  font-size: 1.1em;
   border: none;
   cursor: pointer;
+  background-color: white;
 }
 .dropdown {
   position: relative;
@@ -59,26 +87,27 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 .dropdown-content a {
     color: black;
+	font-family: avenir;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown-content a:hover {
+/*.dropdown-content a:hover {
   background-color: #f1f1f1
 }
 .dropdown:hover .dropbtn {
   background-color: #EAF2D0;
-}
+}*/
 .banner{
   width: 95%;
   margin: auto;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 .main-product{
@@ -102,37 +131,68 @@ article.products-slider{
   margin: auto;
   margin-bottom: 5px;
 }
+
 .login-form-div, .refon{
-  width: 200px;
+  width: 70%;
   margin: 0 auto;
-  padding: 10px 0 10px 0;
-  border: 2px;
-  border-style: solid;
-  border-radius: 25px;
-  border-color: #808080;
-  margin-bottom: 5px;
-  background-color: #A9A9A9;
+  padding: 40px 0 30px 0;
+  border: 8px solid black;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  background-color: white;
   text-align: center;
+  font-family: avenir;
 }
+
+.login a{
+	margin: 10px 0 10px 0;
+}
+
+ #email, #login-pass, #username, #register-pass, #cpassword{
+	border: 1px solid black;
+	width: 60%;
+	padding: 10px;
+}
+
+#imgprofile{
+	border: 1px solid black;
+	width: 60%;
+	padding: 5px;
+	background-color: rgba(254, 249, 210, 0.89);
+}
+
+
+#submit-loggin, #submit-register{
+	border: 0.8px solid black;
+	width:20%;
+	background-color: rgba(204, 203, 198, 0.89);
+	font-size: 0.8em;
+	font-family: avenir;
+}
+
 .register-form-div{
   text-align: center;
-  width: 265px;
+  width: 70%;
   margin: 0 auto;
-  padding: 10px 0 10px 0;
-  border: 2px;
+  padding: 40px 0 30px 0;
+  border: 8px;
   border-style: solid;
-  border-color: #808080;
-  margin-bottom: 5px;
-  border-radius: 25px;
-  background-color: #A9A9A9;
+  border-color: black;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color: white;
+  font-family: avenir;
 }
 label, input{
   margin: 5px 0 5px 0;
 }
+
+
 footer{
-  background-color: rgb(57, 57, 57);
-  height: 100px;
-  border-radius: 25px 25px 0 0;
+  background-color: white;
+  height: 50px;
+  width: 100%;
 }
 .social-links ul{
   overflow: hidden;
@@ -142,13 +202,15 @@ footer{
 }
 @media only screen and (min-width:768px) {
   .container{
-    width: 750px;
+    /*width: 750px;*/
+	width: 90%;
   }
   .banner img{
     height: 500px;
   }
+
   article.main-product img{
-    height: 500px;
+    height: 400px;
   }
   article.products img{
     width: 50%;
@@ -158,10 +220,12 @@ footer{
 }
 @media only screen and (min-width:992px) {
   .container{
-    width: 970px;
+    /*width: 970px;*/
+	width: 80%;
   }
   article.products img{
     width: 33.33%;
+
   }
   .nav-bar{
     display: none
@@ -186,7 +250,8 @@ footer{
 }
 @media only screen and (min-width:1200px) {
   .container{
-    width: 1170px;
+    /*width: 1170px;*/
+	width: 70%;
   }
 
 }

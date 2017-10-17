@@ -8,6 +8,7 @@ button.accordion {
     border: none;
     outline: none;
     transition: 0.4s;
+    font-family: avenir;
 }
 button.accordion.active, button.accordion:hover {
     background-color: #ddd;
@@ -16,6 +17,8 @@ div.panel {
     padding: 0 18px;
     background-color: white;
     display: none;
+    font-family: avenir;
+
 }
 .main-faqs{
   margin: auto;

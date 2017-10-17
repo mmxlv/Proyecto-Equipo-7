@@ -108,7 +108,7 @@ if (empty($_GET) && empty($_POST)): ?>
         <a href="login.php?ref=1">¿Olvido su contraseña?</a><br>
         <input id="remember-box" type="checkbox" name="remember" value="<?=$checkboxDefault?>">
         <label for="remember-box">Recordarme</label><br>
-        <input type="submit" name="Login" value="Login">
+        <input id="submit-loggin" type="submit" name="Login" value="Login">
       </form>
     </div>
   </section>

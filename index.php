@@ -16,15 +16,15 @@ if (isset($_POST['dname'])) {
           <div class="slideshow-container">
             <div class="mySlides fade">
               <div class="numbertext">1 / 3</div>
-              <img src="images/img5.jpg" style="width:100%">
+              <img src="images/bar.jpg" style="width:100%">
             </div>
             <div class="mySlides fade">
               <div class="numbertext">2 / 3</div>
-              <img src="images/img2.jpg" style="width:100%">
+              <img src="images/interior-butaca.jpg" style="width:100%">
             </div>
             <div class="mySlides fade">
               <div class="numbertext">3 / 3</div>
-              <img src="images/img3.jpg" style="width:100%">
+              <img src="images/interior3.png" style="width:100%">
             </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -41,8 +41,8 @@ if (isset($_POST['dname'])) {
           <img src="images/img2.jpg" alt="">
           <img src="images/img3.jpg" alt="">
           <img src="images/img4.jpg" alt="">
-          <img src="images/img1.jpg" alt="">
-          <img src="images/img2.jpg" alt="">
+          <img src="images/img5.jpg" alt="">
+          <img src="images/img6.jpg" alt="">
         </article>
       </section>
       <script src="js/slider.js"></script>

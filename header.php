@@ -75,8 +75,8 @@ require_once 'register-v2.php';
 
       <header class="main-head">
         <div class="logo">
-          <!--<img src="" alt="Logo">//-->
-          <span>E-Comerce logo</span>
+          <img src="images/logo.png" alt="Logo">
+          <!-- <span>E-Comerce logo</span> -->
         </div>
         <div>
           <!-- nav de escritorio //-->
@@ -91,12 +91,12 @@ require_once 'register-v2.php';
           <!-- nav celular y tablet -->
           <ul class="nav-bar">
             <li class="dropdown">
-              <button class="dropbtn" onclick="showDropdown()">Menu</button>
+              <button class="dropbtn" onclick="showDropdown()">menu</button>
               <div id="main-drop" class="dropdown-content">
-                <a href="index.php">Home</a>
+                <a href="index.php">home</a>
                 <a href="faqs.php">FAQs</a>
-                <a href="login.php">Login</a>
-                <a href="register.php">Register</a>
+                <a href="login.php">login</a>
+                <a href="register.php">register</a>
               </div>
             </li>
           </ul>

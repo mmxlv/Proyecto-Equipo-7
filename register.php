@@ -47,8 +47,8 @@ if (count($arrayErrores) > 0) : ?>
             <label for="cpassword">Repetir contraseña:</label><br>
             <input id="cpassword" type="password" name="cpassword" value=""><br>
             <label for="">Foto de Perfil</label><br>
-            <input type="file" name="imgprofile" value=""><br>
-            <input type="submit" name="" value="Register">
+            <input id="imgprofile" type="file" name="imgprofile" value=""><br>
+            <input id="submit-register" type="submit" name="" value="Register">
           </form>
         </div>
       </section>
