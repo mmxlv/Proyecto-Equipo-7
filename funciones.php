@@ -108,29 +108,9 @@ function crearUsuario($data){
           "password" => password_hash($data["password"], PASSWORD_DEFAULT),
             ];
 }
-function guardarUsuario($usuario) {
-  $usuarioJSON = json_encode($usuario);
-  file_put_contents("usuarios.json", $usuarioJSON . PHP_EOL, FILE_APPEND);
-}
-function traerTodos() {
-  $archivo = file_get_contents("usuarios.json");
-  $array = explode(PHP_EOL, $archivo);
-  array_pop($array);
-  $arrayFinal = [];
-  foreach ($array as $usuario) {
-    $arrayFinal[] = json_decode($usuario, true);
-  }
-  return $arrayFinal;
-}
-function traerPorEmail($email) {
-  $todos = traerTodos();
-  foreach ($todos as $usuario) {
-    if ($usuario["email"] == $email) {
-      return $usuario;
-    }
-  }
-  return NULL;
-}
+
+
+
 function validatePassword($data){
   $errores = [];
   if ($data['npassword'] != $data['cpassword']) {

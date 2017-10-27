@@ -1,14 +1,14 @@
-<?php require_once 'funciones.php';
-if (estaLogueado()==true) {
-  $username = $_SESSION['nombre'];
-  $id = $_SESSION['id'];
-}
-if (isset($_POST['logout'])) {
-  session_destroy();
-  unset($_COOKIE);
-  header('location:index.php');
-  exit;
-}
+<?php include_once 'soporte.php';
+// if ($auth->estaLogueado()==true) {
+//   $username = $_SESSION['nombre'];
+//   $id = $_SESSION['id'];
+// }
+// if (isset($_POST['logout'])) {
+//   session_destroy();
+//   unset($_COOKIE);
+//   header('location:index.php');
+//   exit;
+// }
 //require_once 'register-v2.php';
 ?>
 <!DOCTYPE html>
@@ -80,8 +80,12 @@ if (isset($_POST['logout'])) {
           <!-- nav de escritorio //-->
           <ul class="nav-bar-lg">
             <li><a class="dropbtn" href="index.php">Home</a></li>
-            <li><a class="dropbtn" href="login.php">Login</a></li>
-            <li><a class="dropbtn" href="register.php">Register</a></li>
+            <?php if (empty($_SESSION)): ?>
+              <li><a class="dropbtn" href="login.php">Login</a></li>
+              <li><a class="dropbtn" href="register.php">Register</a></li>
+            <?php else: ?>
+              <li><a class="dropbtn" href="panel.php">Panel</a></li>
+            <?php endif; ?>
             <li><a class="dropbtn" href="faqs.php">FAQs</a></li>
           </ul>
         </div>

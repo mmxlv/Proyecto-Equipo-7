@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p>panel de usuario WIP</p>
-  </body>
-</html>
+<?php include_once 'header.php'; ?>
+<br><br>
+<p>panel de usuario WIP</p>
+<br><br>
+<a class="dropbtn" href="logout.php">Logout</a>
+<br><br>
+<?php include_once 'footer.php'; ?>

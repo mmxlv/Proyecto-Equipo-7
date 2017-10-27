@@ -1,25 +1,19 @@
 <?php
+include_once 'soporte.php';
 $arrayErrores = [];
 $userName = '';
 $userEmail = '';
-$mode = 'mysql';
-require_once('funciones.php');
 
 // Validacion de datos
 if ($_POST) {
 
   $userName = $_POST['username'];
   $userEmail = $_POST['email'];
-  $arrayErrores = validarInformacion($_POST);
+  $arrayErrores = $validator->validarInformacion($_POST, $db);
   if (count($arrayErrores) == 0) {
-    if ($mode == 'mysql') {
-      crearUsuarioMysql($_POST);
-    }
-    elseif ($mode == 'json') {
-      $nuevoUser = crearUsuario($_POST);
-      guardarUsuario($nuevoUser);
-    }
-    header('location:index.php');
+    $usuario = new Usuario($_POST['username'], $_POST['email'], $_POST['password']);
+    $usuario = $db->guardarUsuario($usuario);
+    header("Location:index.php");
     exit;
   }
 }
@@ -51,4 +45,4 @@ if (count($arrayErrores) > 0) : ?>
           </form>
         </div>
       </section>
-<?php include_once ("footer.php") ?>
+<?php include_once 'footer.php'; ?>

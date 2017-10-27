@@ -1,80 +1,26 @@
 <?php
-require_once 'header.php';
+include_once 'soporte.php';
 
-$listErrores = [];
-// falta pass recovery en mysql
-//Actualiza la pass en json
-if (isset($_POST['npassword'])) {
-  $listErrores = validatePassword($_POST);
-  if (count($listErrores) == 0) {
-    updatePassword($_POST);
-    ?>
-      <div style="text-align:center;margin: 10px 0 10px 0">
-        <p>Exito al actualizar la contraseña!</p>
-        <a href="index.php">Volver</a>
-      </div>
-<?php
-  }else {
-    echo "Algo salio mal al actualizar la contraseña!";
-  }
-}
-//valida los datos y si son correctos carga el form para cambiar la password
-if (isset($_POST['valid'])) {
-  $listErrores = validarDatos($_POST);
-  if (count($listErrores) > 0) : ?>
-        <div class="refon">
-          <p>Datos Invalidos!</p>
-        </div>
-<?php else : ?>
-        <div class="refon">
-          <form class="" action="login.php" method="post">
-            <label for="">Ingrese contraseña nueva:</label><br>
-            <input type="password" name="npassword" value=""><br>
-            <label for="">Repetir contraseña</label><br>
-            <input type="password" name="cpassword" value=""><br>
-            <input type="submit" name="" value="Cambiar contraseña">
-          </form>
-        </div>
-<?php
-  endif;
-}
-//carga el form para validar al usuario
-if (isset($_GET['ref'])) { ?>
-
-    <div class="refon">
-      <form class="" action="login.php" method="post">
-        <label for="">Email:</label><br>
-        <input type="email" name="email" value=""><br>
-        <label for="">Nombre de Usuario:</label><br>
-        <input type="text" name="username" value=""><br>
-        <input type="submit" name="valid" value="Siguiente">
-      </form>
-    </div>
-
-<?php
-}
-//Persistencia de datos
-$emailDefault= "";
+$emailDefault = "";
 $passwordDefault = "";
-$checkboxDefault = "";
+if ($auth->estaLogueado() == true) {
+  header('location:index.php');
+}
+
 $listadoErrores = [];
 
-if (isset($_POST['Login'])){
+if ($_POST){
 
-$listadoErrores=loginUserMysql($_POST);
-// modo json
-// $listadoErrores=validarLogin($_POST);
-// este if posiblemente no sirve ya que la funcion de mysql se encarga de setear casi todo respecto a la sesion
+$listadoErrores = $validator->validarLogin($_POST, $db);
+
   if(count($listadoErrores)==0){
-    loguear($_POST["email"]);
+    $auth->loguear($_POST["email"]);
 
     if (isset($_POST["remember"])){
-      recordarUsuario($_POST["email"]);
+      $auth->recordarUsuario($_POST["email"]);
     }
-    if (estaLogueado() == true) {
-    header('location:index.php');
-    }
-    // exit; sobra(?)
+    header("Location:index.php");
+    exit;
   }
   // PERSISTENCIA DE DATOS
 
@@ -90,6 +36,7 @@ $listadoErrores=loginUserMysql($_POST);
   }
 
 }
+require_once 'header.php';
 
 if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
   <ul style="color:red">
@@ -97,8 +44,7 @@ if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
       <li><?=$error?></li><br>
 <?php endforeach; ?>
   </ul>
-<?php endif;
-if (empty($_GET) && empty($_POST)): ?>
+<?php endif; ?>
   <section>
     <div class="login-form-div">
       <form class="login-form" action="login.php" method="post">
@@ -113,7 +59,4 @@ if (empty($_GET) && empty($_POST)): ?>
       </form>
     </div>
   </section>
-<?php
-endif;
-include_once ("footer.php");
-?>
+<?php include_once ("footer.php"); ?>
