@@ -9,7 +9,7 @@ if ($auth->estaLogueado() == true) {
 
 $listadoErrores = [];
 
-if ($_POST){
+if (isset($_POST['Login'])){
 
 $listadoErrores = $validator->validarLogin($_POST, $db);
 
@@ -28,17 +28,62 @@ $listadoErrores = $validator->validarLogin($_POST, $db);
     $emailDefault = $_POST["email"];
   }
 
-  if (isset($_POST["password"])){
-    $passwordDefault = $_POST["password"];
-  }
+  // if (isset($_POST["password"])){
+  //   $passwordDefault = $_POST["password"];
+  // }
   if (isset($_POST["remember"])){
     $checkboxDefault = $_POST["remember"];
   }
 
 }
-require_once 'header.php';
+if (isset($_POST['preset'])) {
+  $validar = $validator->validarNewPassword($_POST, $db);
+  $_SESSION['email'] = $_POST['email'];
+  if (count($validar)==0) {
+    $_POST['next'] = '1';
+  }else {
+    var_dump($validar);
+  }
+}
+if (isset($_POST['npassword'])) {
+  $validar = $validator->checkNewPassword($_POST);
+  if (count($validar)==0) {
+    $_POST['email'] = $_SESSION['email'];
+    $db->updatePassword($_POST);
+  }else {
+    var_dump($validar);
+  }
+}
 
-if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
+
+require_once 'header.php'; ?>
+
+<?php if (isset($_POST['next'])): ?>
+  <div class="login-form-div">
+    <form class="" action="login.php" method="post">
+      <label for="">Contraseña:</label><br>
+      <input type="password" name="password" value=""><br>
+      <label for="">Repetir Contraseña:</label><br>
+      <input type="password" name="cpassword" value=""><br>
+      <input type="submit" name="npassword" value="Enviar">
+    </form>
+  </div>
+<?php endif; ?>
+
+<?php if (isset($_GET['ref'])): ?>
+  <div class="login-form-div">
+    <form class="" action="login.php" method="post">
+      <label for="">Nombre:</label><br>
+      <input type="text" name="username" value=""><br>
+      <label for="">Email:</label><br>
+      <input type="text" name="email" value=""><br>
+      <input type="submit" name="preset" value="Siguiente">
+    </form>
+  </div>
+<?php endif; ?>
+
+<?php if (empty($_GET) && empty($_POST)): ?>
+<?php if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
   <ul style="color:red">
 <?php foreach($listadoErrores as $error) : ?>
       <li><?=$error?></li><br>
@@ -59,4 +104,5 @@ if (isset($listadoErrores) && count($listadoErrores) > 0) : ?>
       </form>
     </div>
   </section>
+<?php endif; ?>
 <?php include_once ("footer.php"); ?>

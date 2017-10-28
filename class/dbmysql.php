@@ -7,7 +7,7 @@ class Myslq extends db {
   private $conn;
 
   public function __construct() {
-    $dsn = 'mysql:host=localhost;dbname=team7;charset=utf8mb4;port=3306';
+    $dsn = 'mysql:host=localhost;dbname=ecommerce;charset=utf8mb4;port=3306';
     $user ="root";
     $pass = "";
 
@@ -36,7 +36,7 @@ class Myslq extends db {
 
   }
 
-  function traerTodos() {
+  public function traerTodos() {
     $sql = "Select * from usuarios";
 
     $query = $this->conn->prepare($sql);
@@ -54,7 +54,7 @@ class Myslq extends db {
     return $arrayFinal;
   }
 
-  function traerPorEmail($email) {
+  public function traerPorEmail($email) {
     $sql = "Select * from usuarios where email = :email";
 
     $query = $this->conn->prepare($sql);
@@ -72,6 +72,18 @@ class Myslq extends db {
     return $usuario;
 
   }
+
+  public function updatePassword($password){
+    $sql = "UPDATE usuarios SET password = :password WHERE email = :email";
+
+    $query = $this->conn->prepare($sql);
+
+    $query->bindValue(':password', password_hash($password['password'], PASSWORD_DEFAULT));
+    $query->bindValue(':email', $password['email']);
+    $query->execute();
+
+  }
+
 }
 
 ?>

@@ -64,6 +64,42 @@ class Validator {
 
     return $arrayDeErrores;
   }
+  public function validarNewPassword($info, db $db) {
+    $listDeError = [];
+
+    if (strlen($info['username']) == 0) {
+      $listDeError['username'] = 'Datos Invalidos';
+    }
+    if (strlen($info['email']) == 0) {
+      $listDeError['email'] = 'Datos Invalidos';
+    }
+    else if (filter_var($info['email'], FILTER_VALIDATE_EMAIL) == false) {
+      $listDeError['email'] = 'Datos Invalidos';
+    }
+    else if ($db->traerPorEmail($info['email']) == NULL) {
+      $listDeError['email'] = 'Datos Invalidos';
+    }
+    else {
+      $user = $db->traerPorEmail($info['email']);
+      if ($info['username'] != $user->getUsername()) {
+        $listDeError = 'Datos Invalidos';
+      }
+    }
+    return $listDeError;
+  }
+  public function checkNewPassword($info) {
+    $checklist = [];
+
+    if ($info['password'] != $info['cpassword']) {
+      $checklist['password'] = 'Datos Invalidos desigual';
+    }
+    if (strlen($info['password']) < 7) {
+      $checklist['password'] = 'Datos Invalidos menor';
+    }else if (strlen($info['password']) > 20){
+      $checklist['password'] = 'Datos Invalidos mayor';
+    }
+    return $checklist;
+  }
 }
 
 ?>

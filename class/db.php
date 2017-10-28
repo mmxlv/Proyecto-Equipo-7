@@ -6,5 +6,6 @@ abstract class db {
   public abstract function traerTodos();
   public abstract function traerPorEmail($email);
   public abstract function guardarUsuario(Usuario $usuario);
+  public abstract function updatePassword($password);
 }
 ?>
