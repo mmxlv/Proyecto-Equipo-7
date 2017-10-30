@@ -80,7 +80,7 @@
           <!-- nav de escritorio //-->
           <ul class="nav-bar-lg">
             <li><a class="dropbtn" href="index.php">Home</a></li>
-            <?php if (empty($_SESSION)): ?>
+            <?php if (!isset($_SESSION['usuarioLogueado'])): ?>
               <li><a class="dropbtn" href="login.php">Login</a></li>
               <li><a class="dropbtn" href="register.php">Register</a></li>
             <?php else: ?>

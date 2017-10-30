@@ -28,9 +28,6 @@ $listadoErrores = $validator->validarLogin($_POST, $db);
     $emailDefault = $_POST["email"];
   }
 
-  // if (isset($_POST["password"])){
-  //   $passwordDefault = $_POST["password"];
-  // }
   if (isset($_POST["remember"])){
     $checkboxDefault = $_POST["remember"];
   }
@@ -41,8 +38,6 @@ if (isset($_POST['preset'])) {
   $_SESSION['email'] = $_POST['email'];
   if (count($validar)==0) {
     $_POST['next'] = '1';
-  }else {
-    var_dump($validar);
   }
 }
 if (isset($_POST['npassword'])) {
@@ -50,14 +45,17 @@ if (isset($_POST['npassword'])) {
   if (count($validar)==0) {
     $_POST['email'] = $_SESSION['email'];
     $db->updatePassword($_POST);
-  }else {
-    var_dump($validar);
   }
 }
 
 
 require_once 'header.php'; ?>
 
+<?php if (isset($validar) && count($validar) > 0) : ?>
+  <ul style="color:red;text-align:center;padding:30px 0 30px 0">
+    <li>Datos Invalidos!</li>
+  </ul>
+<?php endif; ?>
 <?php if (isset($_POST['next'])): ?>
   <div class="login-form-div">
     <form class="" action="login.php" method="post">
