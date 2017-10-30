@@ -155,6 +155,15 @@ article.products-slider{
 	width: 60%;
 	padding: 10px;
 }
+#remember-box {
+	width: 3%;
+
+}
+div.login-form-div form input {
+	border: 1px solid black;
+	width: 60%;
+	padding: 10px;
+}
 
 #imgprofile{
 	border: 1px solid black;
