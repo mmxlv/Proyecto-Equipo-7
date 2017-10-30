@@ -32,16 +32,16 @@ if (count($arrayErrores) > 0) : ?>
         <div class="register-form-div">
           <form class="register-form" action="register.php" method="post" enctype="multipart/form-data">
             <label for="username">Nombre</label><br>
-            <input  id="username" type="text" name="username" value="<?=$userName?>"><br>
+            <input  class="username" type="text" name="username" value="<?=$userName?>"><br>
             <label for="email">Email</label><br>
-            <input id="email" type="email" name="email" value="<?=$userEmail?>"><br>
+            <input class="email" type="email" name="email" value="<?=$userEmail?>"><br>
             <label for="register-pass">Contraseña:</label><br>
-            <input id="register-pass" type="password" name="password" value=""><br>
+            <input class="register-pass" type="password" name="password" value=""><br>
             <label for="cpassword">Repetir contraseña:</label><br>
-            <input id="cpassword" type="password" name="cpassword" value=""><br>
+            <input class="cpassword" type="password" name="cpassword" value=""><br>
             <label for="">Foto de Perfil</label><br>
-            <input id="imgprofile" type="file" name="imgprofile" value=""><br>
-            <input id="submit-register" type="submit" name="" value="Register">
+            <input class="imgprofile" type="file" name="imgprofile" value=""><br>
+            <input class="submit-register" type="submit" name="" value="Register">
           </form>
         </div>
       </section>

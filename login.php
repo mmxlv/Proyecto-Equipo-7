@@ -74,10 +74,10 @@ require_once 'header.php'; ?>
   <div class="login-form-div">
     <form class="" action="login.php" method="post">
       <label for="">Nombre:</label><br>
-      <input type="text" name="username" value=""><br>
+      <input class="username" type="text" name="username" value=""><br>
       <label for="">Email:</label><br>
-      <input type="text" name="email" value=""><br>
-      <input type="submit" name="preset" value="Siguiente">
+      <input class="email" type="text" name="email" value=""><br>
+      <button class="btnSubmit" type="submit" name="preset" value="Siguiente">Siguiente</button>
     </form>
   </div>
 <?php endif; ?>
@@ -94,13 +94,13 @@ require_once 'header.php'; ?>
     <div class="login-form-div">
       <form class="login-form" action="login.php" method="post">
         <label for="email">Email</label><br>
-        <input id="email" type="email" name="email" value="<?=$emailDefault?>"><br>
+        <input class="email" type="email" name="email" value="<?=$emailDefault?>"><br>
         <label for="login-pass">Contraseña</label><br>
-        <input id="login-pass" type="password" name="password" value="<?=$passwordDefault?>"><br>
+        <input class="login-pass" type="password" name="password" value="<?=$passwordDefault?>"><br>
         <a href="login.php?ref=1">¿Olvido su contraseña?</a><br>
-        <input id="remember-box" type="checkbox" name="remember" value="<?=$checkboxDefault?>">
+        <input class="remember-box" type="checkbox" name="remember" value="<?=$checkboxDefault?>">
         <label for="remember-box">Recordarme</label><br>
-        <input id="submit-loggin" type="submit" name="Login" value="Login">
+        <input class="submit-loggin" type="submit" name="Login" value="Login">
       </form>
     </div>
   </section>

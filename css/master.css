@@ -150,22 +150,25 @@ article.products-slider{
 	margin: 10px 0 10px 0;
 }
 
- #email, #login-pass, #username, #register-pass, #cpassword{
+ .email, .login-pass, .username, .register-pass, .cpassword{
 	border: 1px solid black;
 	width: 60%;
 	padding: 10px;
 }
-#remember-box {
+.remember-box {
 	width: 3%;
-
-}
-div.login-form-div form input {
-	border: 1px solid black;
-	width: 60%;
-	padding: 10px;
 }
 
-#imgprofile{
+.btnSubmit{
+	border: 0.8px solid black;
+	width:20%;
+	background-color: rgba(204, 203, 198, 0.89);
+	font-size: 0.8em;
+	font-family: avenir;
+	margin-top: 5px;
+}
+
+.imgprofile{
 	border: 1px solid black;
 	width: 60%;
 	padding: 5px;
@@ -173,7 +176,7 @@ div.login-form-div form input {
 }
 
 
-#submit-loggin, #submit-register{
+.submit-loggin, .submit-register{
 	border: 0.8px solid black;
 	width:20%;
 	background-color: rgba(204, 203, 198, 0.89);
